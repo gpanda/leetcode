@@ -1,0 +1,2 @@
+max memory: around 47.5 MB
+i.e. sizeof(char) * (48 * (1L << 20) - (1L << 19))

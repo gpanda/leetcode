@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Attach to Maven test",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": "5005"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch RPrime",
+            "request": "launch",
+            "mainClass": "leetcode.libs.RPrime",
+            "projectName": "algorithm.java"
+        },
+        {
+            "type": "java",
+            "name": "Launch LexicographicalComparator",
+            "request": "launch",
+            "mainClass": "leetcode.scratch.collections.LexicographicalComparator",
+            "projectName": "algorithm.java"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestDataGenerator",
+            "request": "launch",
+            "mainClass": "leetcode.scratch.utils.TestDataGenerator",
+            "projectName": "algorithm.java"
+        }
+    ]
+}

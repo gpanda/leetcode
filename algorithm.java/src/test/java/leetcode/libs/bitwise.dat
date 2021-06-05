@@ -1,0 +1,13 @@
+# bitwise
+# line 1: integer, line 2: byte[] (less significant comes first)
+535
+[23, 2]
+
+260
+[4, 1]
+
+0
+[0]
+
+1
+[1]

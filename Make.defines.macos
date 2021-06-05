@@ -1,0 +1,46 @@
+# Common make definitions, customized for each platform
+
+# Definitions required in all program directories to compile and link
+# C programs using gcc.
+CC=gcc
+COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
+#LINK.c=$(CC) $(CFLAGS) $(CPPFLAGS) $(LDDIR) $(LDFLAGS)
+# ???LDDIR
+#LDDIR=-L$(ROOT_DIR)/lib
+
+# https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html
+# LDFLAGS
+# Extra flags to give to compilers when they are supposed to invoke the
+# linker, ‘ld’, such as -L. Libraries (-lfoo) should be added to the LDLIBS
+# variable instead.
+#
+# LDLIBS
+# Library flags or names given to compilers when they are supposed to invoke
+# the linker, ‘ld’. LOADLIBES is a deprecated (but still supported)
+# alternative to LDLIBS. Non-library linker flags, such as -L, should go in
+# the LDFLAGS variable.
+LDFLAGS = -L$(ROOT_DIR)/lib
+LDLIBS = -lr
+
+#CFLAGS=-DLINUX -ansi -I$(ROOT_DIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+# add -g to produce debug information
+# add -O0 to optimize the compilation
+# change to -std=c11 for c++ style "//" comments (introduced in c99 and after)
+# https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Comments.html#C_002b_002b-Comments
+#CFLAGS=-O0 -g -DLINUX -std=c11 -I$(ROOT_DIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+CFLAGS=-O0 -g -std=c11 -I$(ROOT_DIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+
+# Covarage (gcov)
+# add -fprofile-arcs -ftest-coverage for CFLAGS and -lgcov -fprofile-arcs \
+#  in LDFLAGS for coverage
+# CFLAGS=-O0 -g -fprofile-arcs -ftest-coverage \
+#       -DLINUX -std=c11 -I$(ROOT_DIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+# LDFLAGS=-lgcov -fprofile-arcs
+
+# Our library that almost every program needs.
+#LIB=../libtcpl.a
+
+# Common temp files to delete from each directory.
+TEMPFILES.macos=*.dSYM
+TEMPFILES=core core.* *.o temp.* *.out typescript* *.gcda *.gcno ${TEMPFILES.macos}
+TEMPFILES.python=*.pyc

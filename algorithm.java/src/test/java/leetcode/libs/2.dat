@@ -1,0 +1,16 @@
+# input: an array, and a test value
+# output: an index array in ascending order, all of which point to
+# the same value.
+# index = real index + 1
+[-9, -8, -7, -6, -5, -4, -3, -2, -1, 0]
+-1
+[9]
+[-9, 0]
+0
+[2]
+[1, 9, 8, 3, 0, 2, 1, 2]
+1
+[1, 7]
+[1, 9, 8, 3, 0, 2, 1, 2]
+2
+[6, 8]

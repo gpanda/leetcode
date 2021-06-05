@@ -1,0 +1,32 @@
+#0
+"barfoothefoobarman"
+["foo", "bar"]
+[0,9]
+#1
+"foo"
+["foo"]
+[0]
+#2
+"barfoofoobarfoofoobar"
+["foo", "bar", "foo"]
+[0, 3, 6, 9, 12]
+#3
+""
+[""]
+[0]
+#4
+"abc"
+[""]
+[0, 1, 2, 3]
+#5
+"abc"
+["", ""]
+[0, 1, 2, 3]
+#6
+"aaaa"
+["bbb", "aaaa"]
+[]
+#7
+"aaaaaaaa"
+["aa", "aa", "aa"]
+[0, 1, 2]
