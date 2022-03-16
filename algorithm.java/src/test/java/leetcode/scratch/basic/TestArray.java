@@ -61,4 +61,11 @@ public class TestArray extends TestBase {
         assertEquals(0, q.length);
     }
 
+    @Test
+    public void test_Object_reference_to_array() {
+        Object a = new int[]{100, 200};
+        // assertEquals(a.length, 2); // cannot find symbol
+        assertEquals(((int[])a)[0], 100);
+    }
+
 }

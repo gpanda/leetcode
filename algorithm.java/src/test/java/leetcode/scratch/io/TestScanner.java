@@ -26,7 +26,7 @@ public class TestScanner extends TestBase {
         List<Integer> list = new ArrayList<>();
         try {
             sc = new Scanner(new File(IF_PREFIX + "scratch/io/1.dat"));
-            sc.useDelimiter(dl);
+            sc.useDelimiter(DL);
             while (sc.hasNextInt()) {
                 list.add(sc.nextInt());
             }
@@ -44,7 +44,7 @@ public class TestScanner extends TestBase {
         List<Integer> list = new ArrayList<>();
         try {
             sc = new Scanner(new File(IF_PREFIX + "scratch/io/2.dat"));
-            sc.useDelimiter(dl); // \\R for all line breakers
+            sc.useDelimiter(DL); // \\R for all line breakers
             while (sc.hasNextInt()) {
                 list.add(sc.nextInt());
             }
@@ -62,7 +62,7 @@ public class TestScanner extends TestBase {
         List<Integer> list = new ArrayList<>();
         try {
             sc = new Scanner(new File(IF_PREFIX + "scratch/io/3.dat"));
-            sc.useDelimiter(dl);
+            sc.useDelimiter(DL);
             while (sc.hasNextInt()) {
                 list.add(sc.nextInt());
             }
@@ -80,7 +80,7 @@ public class TestScanner extends TestBase {
         List<Integer> list = new ArrayList<>();
         try {
             sc = new Scanner(new File(IF_PREFIX + "scratch/io/4.dat"));
-            sc.useDelimiter(dl);
+            sc.useDelimiter(DL);
             while (sc.hasNextInt()) {
                 list.add(sc.nextInt());
             }
@@ -103,7 +103,7 @@ public class TestScanner extends TestBase {
         List<Integer> list = new ArrayList<>();
         try {
             sc = new Scanner(new File(IF_PREFIX + "scratch/io/5.dat"));
-            sc.useDelimiter(dl);
+            sc.useDelimiter(DL);
             Integer i = null;
             int c = 0;
             boolean flag = false;

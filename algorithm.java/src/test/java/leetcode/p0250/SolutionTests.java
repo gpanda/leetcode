@@ -1,4 +1,4 @@
-package leetcode.p0065; // change
+package leetcode.p0250;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -14,10 +14,10 @@ import leetcode.TestBase;
 
 public class SolutionTests extends TestBase {
 
-    private static final String infile = IF_PREFIX + "p0065/1.dat"; // change
+    private static final String infile = IF_PREFIX + "p0250/1.dat";
 
     @Parameter(0)
-    public String I0;
+    public int[] I0;
 
     @Parameter(1)
     public boolean E;
@@ -31,7 +31,7 @@ public class SolutionTests extends TestBase {
             for (String line = null;;) {
                 Object[] params = new Object[2]; // change params size
 
-                params[0] = getString(sc);
+                params[0] = getListOfInt(sc);
                 if (params[0] == null) break;
 
                 params[1] = getBoolean(sc);
@@ -53,12 +53,13 @@ public class SolutionTests extends TestBase {
     @Test
     public void test_s1() {
         Solution s = new S1();
-        assertEquals(E, s.isNumber(I0));
+        assertEquals(E, s.verifyPreorder(I0));
     }
 
     @Test
     public void test_s2() {
         Solution s = new S2();
-        assertEquals(E, s.isNumber(I0));
+        assertEquals(E, s.verifyPreorder(I0));
     }
+
 }

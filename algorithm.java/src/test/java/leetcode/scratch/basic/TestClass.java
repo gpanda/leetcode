@@ -27,4 +27,26 @@ public class TestClass extends TestBase {
         assertEquals("java.lang.Integer", t.getTypeName());
         assertEquals("java.lang.Integer", t.getCanonicalName());
     }
+
+    class TYTY {
+        String race;
+        // public TYTY() {}
+        public TYTY(String race) {
+            if (race.equals("Terran") || race.equals("T")) {
+                this.race = race;
+            } else {
+                // return null; // Compile Err: Void methods cannot return a value
+                this.race = "Random";
+            }
+        }
+    }
+
+    @Test
+    public void test_constructor_return_null() {
+        // Constructor is not allowed to return null
+        TYTY ty = new TYTY("T");
+        assertEquals("T", ty.race);
+        TYTY baby = new TYTY("Zerg");
+        assertEquals("Random", baby.race);
+    }
 }

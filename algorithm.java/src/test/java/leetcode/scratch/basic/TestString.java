@@ -73,5 +73,12 @@ public class TestString extends TestBase {
         assertEquals(ty, ty.substring(0, len));
         assertEquals("", ty.substring(len, len));
     }
+
+    @Test
+    public void test_compare() {
+        assertEquals(4, "XY".compareTo("TY"));
+        assertEquals(-32, "herO".compareTo("hero"));
+        assertEquals(2, "ByuN".compareTo("ByuL"));
+    }
 }
 

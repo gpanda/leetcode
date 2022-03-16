@@ -43,20 +43,19 @@ public class TestBase
     protected static final String as = "*";
     protected static final String hs = "#";
     protected static final String an = ".*";
-    protected static final String dl = "(\\s*,\\s*|\\s+)";
+    protected static final String DL = "(\\s*,\\s*|\\s+)";
     protected static final String LIST_PATTERN_STR = b0 + c0 + tk + c1 + b1;
     protected static final Pattern LIST_PATTERN =
         Pattern.compile(LIST_PATTERN_STR);
     protected static final String LIST_2D_PATTERN_STR = ""
         + b0 + ws + c0
              + LIST_PATTERN_STR
-             + c0 + dl
+             + c0 + DL
                   + LIST_PATTERN_STR
              + c1 + as
         + c1 + ws + b1;
     protected static final Pattern LIST_2D_PATTERN =
         Pattern.compile(LIST_2D_PATTERN_STR);
-    //
 
     protected static final Pattern COMMENT_LINE_PATTERN =
         Pattern.compile("^\\s*#.*$");
@@ -176,7 +175,7 @@ public class TestBase
         if (m == null) return null;
         if (!m.find()) {
             if (isVerbose()) {
-                System.out.println("L161:null");
+                System.out.println("L178:null");
             }
             return null;
         }
@@ -184,13 +183,13 @@ public class TestBase
         if (group.length() == 0) {
             return new ArrayList<T>(0);
         }
-        String[] splits = group.split(dl);
+        String[] splits = group.split(DL);
         if (isVerbose()) {
-            System.out.println("L171:splits:" + Arrays.toString(splits));
+            System.out.println("L188:splits:" + Arrays.toString(splits));
         }
         if (Arrays.equals(new String[]{""}, splits)) {
             if (isVerbose()) {
-                System.out.println("L175:empty list");
+                System.out.println("L192:empty list");
             }
             return new ArrayList<T>(0);
         }
@@ -448,6 +447,14 @@ public class TestBase
         }
         line = line.trim();
         return trimQuotes(line);
+    }
+
+    protected static List<String> getListOfString(Scanner sc) {
+        String line = nextLine(sc);
+        if (line == null) {
+            return null;
+        }
+        return getList(line, String.class);
     }
 
     protected static Boolean getBoolean(Scanner sc) {

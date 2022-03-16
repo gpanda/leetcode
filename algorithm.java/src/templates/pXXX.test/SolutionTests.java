@@ -1,4 +1,4 @@
-package leetcode.p0065; // change
+package leetcode.%%PROBLEM%%;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import leetcode.TestBase;
 
 public class SolutionTests extends TestBase {
 
-    private static final String infile = IF_PREFIX + "p0065/1.dat"; // change
+    private static final String infile = IF_PREFIX + "%%PROBLEM%%/1.dat";
 
     @Parameter(0)
     public String I0;
@@ -53,12 +53,7 @@ public class SolutionTests extends TestBase {
     @Test
     public void test_s1() {
         Solution s = new S1();
-        assertEquals(E, s.isNumber(I0));
+        assertEquals(E, s.%%FNAME%%(I0));
     }
 
-    @Test
-    public void test_s2() {
-        Solution s = new S2();
-        assertEquals(E, s.isNumber(I0));
-    }
 }

@@ -1,4 +1,4 @@
-package leetcode.p0065; // change
+package leetcode.p0156;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -11,16 +11,17 @@ import java.io.*;
 import java.util.*;
 
 import leetcode.TestBase;
+import leetcode.libs.RTree;
 
 public class SolutionTests extends TestBase {
 
-    private static final String infile = IF_PREFIX + "p0065/1.dat"; // change
+    private static final String infile = IF_PREFIX + "p0156/1.dat";
 
     @Parameter(0)
-    public String I0;
+    public List<String> I0;
 
     @Parameter(1)
-    public boolean E;
+    public List<Integer> E;
 
     @Parameters
     public static Iterable<Object[]> data() {
@@ -31,10 +32,10 @@ public class SolutionTests extends TestBase {
             for (String line = null;;) {
                 Object[] params = new Object[2]; // change params size
 
-                params[0] = getString(sc);
+                params[0] = getListOfString(sc);
                 if (params[0] == null) break;
 
-                params[1] = getBoolean(sc);
+                params[1] = getListOfInteger(sc);
                 if (params[1] == null) break;
 
                 params_list.add(params);
@@ -53,12 +54,15 @@ public class SolutionTests extends TestBase {
     @Test
     public void test_s1() {
         Solution s = new S1();
-        assertEquals(E, s.isNumber(I0));
+        RTree.BinaryTreeNode<Integer> root =
+            RTree.buildTreeLevelByLevel(I0, Integer.class);
+        RTree.BinaryTreeNode<Integer> reverse =
+            s.upsideDownBinaryTree(root);
+        RTree.TreeNodeCollector<Integer> c = new RTree.TreeNodeCollector<>();
+        RTree.inOrderRecur(reverse, c);
+        List<Integer> out = c.getCollection();
+        assertArrayEquals(E.toArray(new Integer[E.size()]),
+                out.toArray(new Integer[out.size()]));
     }
 
-    @Test
-    public void test_s2() {
-        Solution s = new S2();
-        assertEquals(E, s.isNumber(I0));
-    }
 }

@@ -23,11 +23,19 @@ public class TestReference extends TestBase {
     private void A(Integer v) {
         v++;
     }
+
     @Test
     public void test_pass_by_ref() {
         Integer a = 3;
         A(a);
         assertEquals(Integer.valueOf(5), Integer.valueOf(5));
         assertEquals(Integer.valueOf(3), a);
+    }
+
+    @Test
+    public void test_object_array_init() {
+        Object[] arr = new Object[26];
+        assertEquals(null, arr[0]);
+        assertEquals(null, arr[25]);
     }
 }
