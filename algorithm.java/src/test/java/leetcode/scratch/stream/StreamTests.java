@@ -27,7 +27,7 @@ public class StreamTests extends TestBase {
         l.add(Integer.valueOf(7));
         l.add(Integer.valueOf(9));
         List<Integer> list = l.stream().map(e -> e * 2).collect(Collectors.toList());
-        System.out.println(list);
+        assertArrayEquals(new Integer[]{2, 6, 10, 14, 18}, list.toArray(new Integer[0]));
     }
 
     @Test

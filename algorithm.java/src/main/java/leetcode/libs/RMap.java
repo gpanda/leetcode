@@ -63,10 +63,12 @@ public class RMap {
                 i++;
             }
         }
+        /*
         System.out.println(Arrays.toString(
             Arrays.stream(jump).map(e -> e[0]).toArray(Integer[]::new)));
         System.out.println(Arrays.toString(
             Arrays.stream(jump).map(e -> e[1]).toArray(Integer[]::new)));
+        */
         return jump;
     }
 

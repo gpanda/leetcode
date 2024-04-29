@@ -71,7 +71,12 @@ public class SolutionTests extends TestBase {
                 c.get(args.get(0));
             }
         }
+        /*
         System.out.println(c);
+
+        HashMap:||{4=0, 3=1}||.
+        Cache:||[[4, 4, 1, -1], [3, 3, -1, 0]]||.
+        */
     }
 
 }

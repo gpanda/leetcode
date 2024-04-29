@@ -67,10 +67,17 @@ public class TestHashMap extends TestBase {
             }
         }
         for (Map.Entry<Character, int[]> e : map.entrySet()) {
+            /*
             System.out.println ("K:" + e.getKey() +
                                 ",V:" + Arrays.toString(e.getValue()));
+            */
+            /*
+                K:A,V:[3, 0]
+                K:B,V:[2, 0]
+                K:C,V:[2, 0]
+                K:D,V:[1, 0]
+             */
         }
-        assert(true);
     }
 
 }

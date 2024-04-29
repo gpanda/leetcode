@@ -6,7 +6,7 @@ import java.util.*;
 public class S1 implements Solution {
     @Override
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        System.out.println(Arrays.toString(nums));
+        // System.out.println(Arrays.toString(nums));
         List<List<Integer>> results = new ArrayList<>();
         int len = nums.length;
         if (len < 4) return new ArrayList<List<Integer>>();
@@ -111,7 +111,14 @@ public class S1 implements Solution {
             @SuppressWarnings("unchecked")
             List<Integer> l = (List<Integer>)kv[1];
             results.add(l);
+            /*
             System.out.println(l);
+
+            [-1, 0, 0, 1]
+            [-2, -1, 1, 2]
+            [-2, 0, 0, 2]
+            [0, 0, 0, 0]
+             */
         }
 
         return results;

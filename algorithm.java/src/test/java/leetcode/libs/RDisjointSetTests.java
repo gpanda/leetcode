@@ -40,7 +40,7 @@ public class RDisjointSetTests extends TestBase {
                 Integer[][] tmp2 = nestedListTo2dArray(tmp, Integer.class);
                 params[1] = new int[tmp2.length][tmp2[0].length];
                 unboxing2dArray(tmp2, params[1], Integer.class);
-                System.out.println(((int[][])params[1]).length);
+                // System.out.println(((int[][])params[1]).length);
                 if (params[1] == null) break;
 
                 params_list.add(params);

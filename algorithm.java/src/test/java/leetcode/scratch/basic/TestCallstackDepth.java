@@ -56,7 +56,7 @@ public class TestCallstackDepth extends TestBase {
         try {
             StackOverflowError soe = assertThrows(StackOverflowError.class,
                 ()-> recur(1<<15));
-            System.out.println("Error Messaage:" + soe.getMessage());
+            // System.out.println("Error Messaage:" + soe.getMessage());
             // recur(1<<15); // sometimes: stack overflow, sometimes not
         } catch (AssertionError ae) {
             System.out.println(ae);
@@ -69,7 +69,7 @@ public class TestCallstackDepth extends TestBase {
         try{
             StackOverflowError soe = assertThrows(StackOverflowError.class,
                 ()-> recur(1<<16));
-            System.out.println("Error Messaage:" + soe.getMessage());
+            // System.out.println("Error Messaage:" + soe.getMessage());
             // recur(1<<16); // stack overflow, need to increase Xss to 4MB
         } catch (AssertionError ae) {
             System.out.println(ae);

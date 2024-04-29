@@ -26,8 +26,15 @@ public class TestLoop extends TestBase {
             if (a == 2) {
                 b = 5;
             }
-            System.out.println("a:" + a + ",b:" + b);
+
+            // System.out.println("a:" + a + ",b:" + b);
             a++;
         }
     }
 }
+/*
+a:0,b:0
+a:1,b:3
+a:2,b:5
+*/
+

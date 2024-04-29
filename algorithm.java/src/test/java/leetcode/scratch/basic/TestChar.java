@@ -25,6 +25,6 @@ public class TestChar extends TestBase {
         assertEquals((1 << Byte.SIZE * Character.BYTES) - 1, d);
         assertEquals(65535, d);
         assertEquals(0, c);
-        System.out.println("c=" + c + ",d=" + d);
+        // System.out.println("c=" + c + ",d=" + d);
     }
 }
