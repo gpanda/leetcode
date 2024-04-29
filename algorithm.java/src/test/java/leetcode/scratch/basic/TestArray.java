@@ -14,6 +14,7 @@ import leetcode.TestBase;
 
 @RunWith(value = JUnit4.class)
 public class TestArray extends TestBase {
+
     @Test
     public void test_1() {
         int[][] d2a = { {1, 2, 3}, {4, 5, 6} };
@@ -26,7 +27,6 @@ public class TestArray extends TestBase {
             }
         }
     }
-
 
     private <T> T[] getArray(String raw, Class<T> c) {
         if (raw.length() == 0) return null;
@@ -66,6 +66,13 @@ public class TestArray extends TestBase {
         Object a = new int[]{100, 200};
         // assertEquals(a.length, 2); // cannot find symbol
         assertEquals(((int[])a)[0], 100);
+    }
+
+    @Test
+    public void test_array_init() {
+        int[] a = new int[10];
+        Arrays.fill(a, -1);
+        assertArrayEquals(new int[]{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}, a);
     }
 
 }

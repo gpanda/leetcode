@@ -52,7 +52,7 @@ public class SolutionTests extends TestBase {
     public void test_1() {
         Solution s = new S1();
         List<List<Integer>> ans = s.permuteUnique(I0);
-        printList2d(ans);
+        // printList2d(ans);
         for (int i = 0; i < E.size(); i++) {
             assertArrayEquals(E.get(i).toArray(), ans.get(i).toArray());
         }
@@ -62,7 +62,7 @@ public class SolutionTests extends TestBase {
     public void test_2() {
         Solution s = new S2();
         List<List<Integer>> ans = s.permuteUnique(I0);
-        printList2d(ans);
+        // printList2d(ans);
         for (int i = 0; i < E.size(); i++) {
             assertArrayEquals(E.get(i).toArray(), ans.get(i).toArray());
         }
@@ -72,7 +72,7 @@ public class SolutionTests extends TestBase {
     public void test_3() {
         Solution s = new S3();
         List<List<Integer>> ans = s.permuteUnique(I0);
-        printList2d(ans);
+        // printList2d(ans);
         for (int i = 0; i < E.size(); i++) {
             // assertArrayEquals(E.get(i).toArray(), ans.get(i).toArray());
         }
@@ -82,7 +82,7 @@ public class SolutionTests extends TestBase {
     public void test_4() {
         Solution s = new S4();
         List<List<Integer>> ans = s.permuteUnique(I0);
-        printList2d(ans);
+        // printList2d(ans);
         for (int i = 0; i < E.size(); i++) {
             // assertArrayEquals(E.get(i).toArray(), ans.get(i).toArray());
         }

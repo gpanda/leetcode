@@ -2,8 +2,6 @@ package leetcode.scratch.regex;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 
 import java.io.*;
@@ -11,12 +9,16 @@ import java.util.*;
 import java.util.regex.*;
 import java.util.stream.*;
 
-import leetcode.TestBaseSimple;
-
-public class TestRegex extends TestBaseSimple {
+public class TestRegex {
 
     private static final String infile = "src/test/java/leetcode/"
         + "scratch/regex/1.dat";
+
+    private static final String VERBOSE = "verbose";
+
+    private static boolean isVerbose() {
+        return "Y".equals(System.getProperty(VERBOSE));
+    }
 
     final String s0 = "^";
     final String s1 = "$";

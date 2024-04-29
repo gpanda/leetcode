@@ -15,11 +15,5 @@
             "command": "mvn -B test",
             "group": "test"
         },
-        {
-            "label": "test.p0087",
-            "type": "shell",
-            "command": "mvn -Dtest='p0087.*' test -Dmaven.surefire.debug test",
-            "group": "test"
-        }
     ]
 }

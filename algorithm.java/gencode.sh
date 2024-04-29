@@ -18,16 +18,18 @@
 #===============================================================================
 
 set -o nounset                             # Treat unset variables as an error
-PROGRAM=gen.sh
+PROGRAM=${0##/}
 
 usage()
 {
-    printf "%s <problem name> <main method signature>\n" "$PROGRAM"
-    printf "Ex. ./%s p0001 \"int[] twoSum(int[] nums, int target)\"\n" \
-        "$PROGRAM"
+    printf "%s <problem name> <param num> <main method signature>\n" "$PROGRAM"
+    printf "\nEx. %s p0001 3 \"int[] twoSum(int[] nums, int target)\"\n" "$PROGRAM"
+    printf "\nNotes: Usually, the number of parameters is the number of
+pararmeters in method signature plus 1 return value(3 = 2 + 1 in the above
+example).\n"
 }
 
-if [ $# -lt 2 ]; then
+if [ $# -lt 3 ]; then
     usage && exit 1;
 fi
 
@@ -43,7 +45,8 @@ get_func_name()
 }
 
 PROBLEM="$1"
-SIGNATURE="$2"
+PARAM_NUM="$2"
+SIGNATURE="$3"
 FNAME=$(get_func_name "$SIGNATURE")
 
 cp -r src/templates/pXXX "src/main/java/leetcode/$PROBLEM"
@@ -53,5 +56,5 @@ substr "src/main/java/leetcode/$PROBLEM" "%%SIGNATURE%%" "$SIGNATURE"
 substr "src/test/java/leetcode/$PROBLEM" "%%PROBLEM%%" "$PROBLEM"
 substr "src/test/java/leetcode/$PROBLEM" "%%SIGNATURE%%" "$SIGNATURE"
 substr "src/test/java/leetcode/$PROBLEM" "%%FNAME%%" "$FNAME"
-
+substr "src/test/java/leetcode/$PROBLEM" "%%PARAM_NUM%%" "$PARAM_NUM"
 

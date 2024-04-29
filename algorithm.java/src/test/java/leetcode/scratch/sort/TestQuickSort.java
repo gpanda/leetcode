@@ -89,26 +89,20 @@ public class TestQuickSort extends TestBase {
 
     private void qsort4(int[] a, int l, int h) {
         if (l >= h) return;
-        int l2 = l;
-        int h2 = h;
-        int m = l + (h - l) / 2;
-        int pivot = a[m];
+        int l2 = l, h2 = h;
+        int t = a[l];
+        int i = l + 1;
         while (l < h) {
-            if (a[l] <=  pivot) {
-                l++;
+            if (a[i] <= t) {
+                a[l++] = a[i++];
             } else {
-                swap(a, l, h);
+                swap(a, i, h);
                 h--;
             }
         }
-        if (a[l] < pivot) {
-            swap(a, l, m);
-            h++;
-        } else if (a[l] > pivot) {
-        }
-        l--;
-        qsort(a, l2, l);
-        qsort(a, h, h2);
+        a[l] = t;
+        qsort(a, l2, l-1);
+        qsort(a, l+1, h2);
     }
 
     private void qsort3(int[] a, int l, int h) {
@@ -137,6 +131,24 @@ public class TestQuickSort extends TestBase {
         a[j] = t;
     }
 
+    private void qsort_tmp(int[] a, int l, int h) {
+        if (l >= h) return;
+        int pivot = a[l];
+        int p = l;
+        int next = l + 1;
+        while (p < h) {
+            if (a[next] <= pivot) {
+                a[p++] = a[next++];
+            } else {
+                swap(a, next, h);
+                h--;
+            }
+        }
+        a[p] = pivot;
+        qsort(a, l, p-1);
+        qsort(a, p+1, h);
+    }
+
     @Test
     public void test_1() {
         int[] I0_copy = Arrays.copyOf(I0, I0.length);
@@ -162,6 +174,13 @@ public class TestQuickSort extends TestBase {
     public void test_4() {
         int[] I0_copy = Arrays.copyOf(I0, I0.length);
         qsort4(I0_copy, 0, I0_copy.length - 1);
+        assertArrayEquals(E, I0_copy);
+    }
+
+    @Test
+    public void test_tmp() {
+        int[] I0_copy = Arrays.copyOf(I0, I0.length);
+        qsort_tmp(I0_copy, 0, I0_copy.length - 1);
         assertArrayEquals(E, I0_copy);
     }
 }

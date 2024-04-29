@@ -84,4 +84,22 @@ public class TestExpression extends TestBase {
         assertEquals(true, false || true); // or
         assertEquals(false, false || false); // or
     }
+
+    @Test
+    public void test_self_increment() {
+        int[] a = {10, 11, 12, 13, 14};
+        int i = 1;
+        assertEquals(11, a[i]);
+        a[i++]++;
+        assertEquals(12, a[1]);
+        assertEquals(12, a[2]);
+
+        int[] b = {1, 2, 3, 4, 5};
+        int j = 2;
+        assertEquals(3, b[j]);
+        b[j] = b[j++];          // b[2] = b[2]; j++;
+        assertEquals(4, b[j]);
+        assertEquals(3, b[2]);
+        assertEquals(4, b[3]);
+    }
 }

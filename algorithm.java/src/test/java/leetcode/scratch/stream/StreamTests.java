@@ -30,5 +30,14 @@ public class StreamTests extends TestBase {
         System.out.println(list);
     }
 
+    @Test
+    public void test_2d_array_fill() {
+        int[][] a = new int[5][3];
+        Arrays.stream(a).forEach(r -> Arrays.fill(r, 9));
+        for (int r = 0; r < a.length; r++) {
+            assertArrayEquals(new int[]{9, 9, 9}, a[r]);
+        }
+    }
+
 }
 

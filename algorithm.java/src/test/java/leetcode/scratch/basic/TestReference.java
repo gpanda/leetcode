@@ -17,11 +17,13 @@ public class TestReference extends TestBase {
     @Test
     public void test_1() {
         Object a = new Object();
-        // System.out.println(a);
     }
 
     private void A(Integer v) {
-        v++;
+        v++; // equals to `v = v + 1`, which refer to another object whose
+             // value is v + 1
+             // It's impossible to modify the value of an Integer Object
+             // after initializaiton.
     }
 
     @Test

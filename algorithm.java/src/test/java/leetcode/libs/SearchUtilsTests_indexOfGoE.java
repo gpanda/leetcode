@@ -1,9 +1,7 @@
-package leetcode.%%PROBLEM%%;
+package leetcode.libs;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
@@ -12,15 +10,18 @@ import java.util.*;
 
 import leetcode.TestBase;
 
-public class SolutionTests extends TestBase {
+public class SearchUtilsTests_indexOfGoE extends TestBase {
 
-    private static final String infile = IF_PREFIX + "%%PROBLEM%%/1.dat";
+    private static final String infile = IF_PREFIX + "libs/ioge.dat";
 
     @Parameter(0)
-    public String I0;
+    public List<Integer> I0;
 
     @Parameter(1)
-    public boolean E;
+    public int I1;
+
+    @Parameter(2)
+    public int E;
 
     @Parameters
     public static Iterable<Object[]> data() {
@@ -29,13 +30,16 @@ public class SolutionTests extends TestBase {
         try {
             sc = new Scanner(new File(infile));
             for (String line = null;;) {
-                Object[] params = new Object[%%PARAM_NUM%%]; // change params size
+                Object[] params = new Object[3];
 
-                params[0] = getString(sc);
+                params[0] = getListOfInteger(sc);
                 if (params[0] == null) break;
 
-                params[1] = getBoolean(sc);
+                params[1] = getInteger(sc);
                 if (params[1] == null) break;
+
+                params[2] = getInteger(sc);
+                if (params[2] == null) break;
 
                 params_list.add(params);
             }
@@ -49,11 +53,9 @@ public class SolutionTests extends TestBase {
         return params_list;
     }
 
-
     @Test
-    public void test_s1() {
-        Solution s = new S1();
-        assertEquals(E, s.%%FNAME%%(I0));
+    public void test_BinarySearchGE() {
+        assertEquals(E, SearchUtils.indexOfGoE(I0, I1));
     }
-
 }
+

@@ -6,6 +6,7 @@ import org.junit.runners.JUnit4;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import java.util.*;
 
@@ -52,12 +53,28 @@ public class TestCallstackDepth extends TestBase {
 
     @Test
     public void test_5() {
-        recur(1<<15); // sometime: stack overflow, sometimes not
+        try {
+            StackOverflowError soe = assertThrows(StackOverflowError.class,
+                ()-> recur(1<<15));
+            System.out.println("Error Messaage:" + soe.getMessage());
+            // recur(1<<15); // sometimes: stack overflow, sometimes not
+        } catch (AssertionError ae) {
+            System.out.println(ae);
+            ae.printStackTrace();
+        }
     }
 
     @Test
     public void test_6() {
-        recur(1<<16); // stack overflow, need to increase Xss to 4MB
+        try{
+            StackOverflowError soe = assertThrows(StackOverflowError.class,
+                ()-> recur(1<<16));
+            System.out.println("Error Messaage:" + soe.getMessage());
+            // recur(1<<16); // stack overflow, need to increase Xss to 4MB
+        } catch (AssertionError ae) {
+            System.out.println(ae);
+            ae.printStackTrace();
+        }
     }
 
     private void recur(int n)

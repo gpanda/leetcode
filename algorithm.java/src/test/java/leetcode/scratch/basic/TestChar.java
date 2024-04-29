@@ -15,6 +15,7 @@ import leetcode.TestBase;
 @RunWith(value = JUnit4.class)
 public class TestChar extends TestBase {
 
+    @Test
     public void test() {
         assertEquals(8, Byte.SIZE);
         assertEquals(2, Character.BYTES);

@@ -2,8 +2,6 @@ package leetcode.p0005;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
@@ -20,7 +18,7 @@ public class SolutionTests extends TestBase {
     public String I;
 
     @Parameter(1)
-    public String E;
+    public List<String> E;
 
     @Parameters
     public static Iterable<Object[]> data() {
@@ -31,19 +29,11 @@ public class SolutionTests extends TestBase {
             for (String line = null;;) {
                 Object[] params = new Object[2];
 
-                line = nextLine(sc);
-                if (line == null) break;
-                line = line.trim();
-                if (!line.matches("\".*\"")) break;
-                line = line.substring(1, line.length() - 1);
-                params[0] = line;
+                params[0] = getString(sc);
+                if (params[0] == null) break;
 
-                line = nextLine(sc);
-                if (line == null) break;
-                line = line.trim();
-                if (!line.matches("\".*\"")) break;
-                line = line.substring(1, line.length() - 1);
-                params[1] = line;
+                params[1] = getListOfString(sc);
+                if (params[1] == null) break;
 
                 params_list.add(params);
             }
@@ -60,20 +50,26 @@ public class SolutionTests extends TestBase {
     @Test
     public void test_s1() {
         Solution s = new S1();
-        assertEquals(E, s.longestPalindrome(I));
+        assertTrue(E.contains(s.longestPalindrome(I)));
     }
 
     @Test
     public void test_s2() {
         Solution s = new S2();
-        assertEquals(E, s.longestPalindrome(I));
+        assertTrue(E.contains(s.longestPalindrome(I)));
     }
 
 
     @Test
     public void test_s3() {
         Solution s = new S3();
-        assertEquals(E, s.longestPalindrome(I));
+        assertTrue(E.contains(s.longestPalindrome(I)));
+    }
+
+    @Test
+    public void test_s0() {
+        Solution s = new S0();
+        assertTrue(E.contains(s.longestPalindrome(I)));
     }
 }
 
