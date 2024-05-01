@@ -17,10 +17,10 @@ public class SolutionTests extends TestBase {
     private static final String infile = IF_PREFIX + "%%PROBLEM%%/1.dat";
 
     @Parameter(0)
-    public String I0;
+    public List<Integer> I0;
 
     @Parameter(1)
-    public boolean E;
+    public int E;
 
     @Parameters
     public static Iterable<Object[]> data() {
@@ -28,13 +28,13 @@ public class SolutionTests extends TestBase {
         Scanner sc = null;
         try {
             sc = new Scanner(new File(infile));
-            for (String line = null;;) {
-                Object[] params = new Object[%%PARAM_NUM%%]; // change params size
+            while (true) { // break when reach the end of infile
+                Object[] params = new Object[%%PARAM_NUM%%];
 
-                params[0] = getString(sc);
+                params[0] = getListOfInteger(sc, Integer.class);
                 if (params[0] == null) break;
 
-                params[1] = getBoolean(sc);
+                params[1] = getInteger(sc);
                 if (params[1] == null) break;
 
                 params_list.add(params);

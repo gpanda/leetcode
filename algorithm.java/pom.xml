@@ -51,11 +51,15 @@
         <version>3.8.1</version>
         <configuration>
           <compilerArgs>
-            <!--
-            <arg>-verbose</arg>
             <arg>-Xlint:all,-options,-path</arg>
-            -->
+              <!--
+            <arg>-verbose</arg>
+              -->
           </compilerArgs>
+          <testExcludes>
+              <exclude>**/leetcode/templates/pXXX/*.java</exclude>
+              <exclude>**/leetcode/templates/pXXX.test/*.java</exclude>
+          </testExcludes>
         </configuration>
       </plugin>
       <plugin>

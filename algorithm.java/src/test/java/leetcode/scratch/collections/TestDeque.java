@@ -3,7 +3,6 @@ package leetcode.scratch.collections;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.junit.function.*;
 
 import java.util.*;
 
@@ -27,7 +26,7 @@ public class TestDeque extends TestBase {
         Iterator<Integer> iter = dq.iterator();
         int i = 0;
         while (iter.hasNext()) {
-            assertEquals(new Integer(i++), iter.next());
+            assertEquals(Integer.valueOf(i++), iter.next());
         }
     }
 
@@ -39,7 +38,7 @@ public class TestDeque extends TestBase {
         }
         int i = 0;
         while (!dq.isEmpty()) {
-            assertEquals(new Integer(i++), dq.poll());
+            assertEquals(Integer.valueOf(i++), dq.poll());
         }
     }
 
@@ -56,8 +55,8 @@ public class TestDeque extends TestBase {
             // iter.next() before dq.poll() is OK, if dq.poll() goes first,
             // ConcurrentModificationException will be thrown.
             // See the root cause in the next test case.
-            assertEquals(new Integer(i), iter.next());
-            assertEquals(new Integer(i), dq.poll());
+            assertEquals(Integer.valueOf(i), iter.next());
+            assertEquals(Integer.valueOf(i), dq.poll());
             i++;
         }
         assertEquals(5, i);
@@ -66,7 +65,7 @@ public class TestDeque extends TestBase {
 
     private void run(int i, Iterator<Integer> iter) {
         while (iter.hasNext()) {
-            assertEquals(new Integer(i), iter.next());
+            assertEquals(Integer.valueOf(i), iter.next());
             i++;
         }
     }
@@ -79,11 +78,11 @@ public class TestDeque extends TestBase {
         } // dq: [0, 1, 2, 3, 4]
         // create iter before the dq changes
         Iterator<Integer> iter = dq.iterator();
-        assertEquals(new Integer(0), iter.next()); // now iter points to 1
+        assertEquals(Integer.valueOf(0), iter.next()); // now iter points to 1
         // remove the 3 heads of the dq
         int i = 0;
         while (i < 3) {
-            assertEquals(new Integer(i), dq.poll());
+            assertEquals(Integer.valueOf(i), dq.poll());
             i++;
         } // i: 3
         final int fi = i;

@@ -1,4 +1,4 @@
-package leetcode.template;
+package leetcode.templates;
 
 import java.util.*;
 import java.util.stream.*;

@@ -1,4 +1,4 @@
-package leetcode.template;
+package leetcode.templates;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

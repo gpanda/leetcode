@@ -1,4 +1,4 @@
-package leetcode.template;
+package leetcode.templates;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import leetcode.TestBase;
 
 public class SolutionTests extends TestBase {
 
-    private static final String infile = IF_PREFIX + "template/1.dat";
+    private static final String infile = IF_PREFIX + "templates/1.dat";
 
     @Parameter(0)
     public int[] I0;

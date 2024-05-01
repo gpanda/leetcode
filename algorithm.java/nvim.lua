@@ -18,3 +18,8 @@ end, {noremap = true, desc = "Run maven tests with profiling on the current clas
 map('n', '<leader>mta', function()
     vim.cmd('term mvn test')
 end, {noremap = true, desc = "Run maven tests."})
+
+-- mvn clean
+map('n', '<leader>mc', function()
+    vim.cmd('term mvn clean')
+end, {noremap = true, desc = "Run maven cleanup job."})

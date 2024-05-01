@@ -49,8 +49,8 @@ PARAM_NUM="$2"
 SIGNATURE="$3"
 FNAME=$(get_func_name "$SIGNATURE")
 
-cp -r src/templates/pXXX "src/main/java/leetcode/$PROBLEM"
-cp -r src/templates/pXXX.test "src/test/java/leetcode/$PROBLEM"
+cp -r src/test/java/leetcode/templates/pXXX "src/main/java/leetcode/$PROBLEM"
+cp -r src/test/java/leetcode/templates/pXXX.test "src/test/java/leetcode/$PROBLEM"
 substr "src/main/java/leetcode/$PROBLEM" "%%PROBLEM%%" "$PROBLEM"
 substr "src/main/java/leetcode/$PROBLEM" "%%SIGNATURE%%" "$SIGNATURE"
 substr "src/test/java/leetcode/$PROBLEM" "%%PROBLEM%%" "$PROBLEM"

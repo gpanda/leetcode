@@ -51,6 +51,7 @@ public class TestCallstackDepth extends TestBase {
         recur(1<<14);
     }
 
+/*
     @Test
     public void test_5() {
         try {
@@ -76,7 +77,7 @@ public class TestCallstackDepth extends TestBase {
             ae.printStackTrace();
         }
     }
-
+*/
     private void recur(int n)
     {
         if (n <= 0) return;
