@@ -5,15 +5,16 @@ import java.util.*;
 class S2 implements Solution {
 
     public int minimumTotal(List<List<Integer>> triangle) {
-        int[] min = triangle.get(triangle.size()-1).stream()
-            .mapToInt(Integer::intValue).toArray();
-        for (int r = triangle.size() - 2; r > -1; r--) {
-            List<Integer> row = triangle.get(r);
-            for (int c = 0; c < row.size(); c++) {
-                min[c] = row.get(c) + Math.min(min[c], min[c+1]);
-            }
-        }
-        return min[0];
+        int[][] dp = new int[triangle.size()][triangle.size()];
+        for (int [] a : dp) Arrays.fill(a, Integer.MAX_VALUE);
+        return dfs(triangle, 0, 0, dp);
     }
 
+    private int dfs(List<List<Integer>> t, int r, int c, int[][] dp) {
+        if (r == t.size() - 1)  return t.get(r).get(c);
+        if (dp[r][c] == Integer.MAX_VALUE)
+            dp[r][c] = Math.min(dfs(t, r+1, c, dp), dfs(t, r+1, c+1, dp))
+            + t.get(r).get(c);
+        return dp[r][c];
+    }
 }

@@ -5,11 +5,14 @@ import java.util.*;
 class S3 implements Solution {
 
     public int minimumTotal(List<List<Integer>> triangle) {
-        List<Integer> min = new ArrayList<>();
-        for (Integer i : triangle.get(triangle.size() - 1)) min.add(i);
-        for (int row = triangle.size() - 2; row >= 0; row--)
-            for (int col = 0; col <= row; col++)
-                min.set(col, triangle.get(row).get(col) + Math.min(min.get(col), min.get(col+1)));
-        return min.get(0);
+        int[] min = triangle.get(triangle.size()-1).stream()
+            .mapToInt(Integer::intValue).toArray();
+        for (int r = triangle.size() - 2; r > -1; r--) {
+            List<Integer> row = triangle.get(r);
+            for (int c = 0; c < row.size(); c++) {
+                min[c] = row.get(c) + Math.min(min[c], min[c+1]);
+            }
+        }
+        return min[0];
     }
 }

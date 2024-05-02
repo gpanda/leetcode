@@ -68,4 +68,9 @@ public class SolutionTests extends TestBase {
         assertEquals(E, s.minimumTotal(I0));
     }
 
+    @Test
+    public void test_s4() {
+        Solution s = new S4();
+        assertEquals(E, s.minimumTotal(I0));
+    }
 }
