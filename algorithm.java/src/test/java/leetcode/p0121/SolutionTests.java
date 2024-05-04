@@ -1,4 +1,4 @@
-package leetcode.p0120;
+package leetcode.p0121;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -14,10 +14,10 @@ import leetcode.TestBase;
 
 public class SolutionTests extends TestBase {
 
-    private static final String infile = IF_PREFIX + "p0120/1.dat";
+    private static final String infile = IF_PREFIX + "p0121/1.dat";
 
     @Parameter(0)
-    public List<List<Integer>> I0;
+    public int[] I0;
 
     @Parameter(1)
     public int E;
@@ -31,7 +31,7 @@ public class SolutionTests extends TestBase {
             while (true) { // break when reach the end of infile
                 Object[] params = new Object[2];
 
-                params[0] = get2dList(sc, Integer.class);
+                params[0] = getListOfInt(sc);
                 if (params[0] == null) break;
 
                 params[1] = getInteger(sc);
@@ -53,30 +53,12 @@ public class SolutionTests extends TestBase {
     @Test
     public void test_s1() {
         Solution s = new S1();
-        assertEquals(E, s.minimumTotal(I0));
+        assertEquals(E, s.maxProfit(I0));
     }
 
     @Test
     public void test_s2() {
         Solution s = new S2();
-        assertEquals(E, s.minimumTotal(I0));
-    }
-
-    @Test
-    public void test_s3() {
-        Solution s = new S3();
-        assertEquals(E, s.minimumTotal(I0));
-    }
-
-    @Test
-    public void test_s4() {
-        Solution s = new S4();
-        assertEquals(E, s.minimumTotal(I0));
-    }
-
-    @Test
-    public void test_best() {
-        Solution s = new Best();
-        assertEquals(E, s.minimumTotal(I0));
+        assertEquals(E, s.maxProfit(I0));
     }
 }
